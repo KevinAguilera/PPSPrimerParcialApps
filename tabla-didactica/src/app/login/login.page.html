@@ -1,0 +1,65 @@
+
+ <ion-item>
+  <ion-label>Cuentas guardadas</ion-label>
+  <!-- <ion-select [(ngModel)]="value" (ionChange)=“selecCuenta($event)> -->
+  <ion-select interface="popover" value="" #C [(ngModel)]="user.email" (ionChange)="selecCuenta(C.value)">
+    <ion-select-option [value]="">admin@admin.com</ion-select-option>
+    <ion-select-option [value]="">invitado@invitado.com</ion-select-option>
+    <ion-select-option [value]="">usuario@usuario.com</ion-select-option>
+    <ion-select-option [value]="">anonimo@anonimo.com</ion-select-option>
+    <ion-select-option [value]="">tester@tester.com</ion-select-option>
+  </ion-select>
+</ion-item>
+
+
+<ion-content [fullscreen]="true" padding class="background" >
+
+
+  <div id="container" >
+
+
+<!-- 
+    <img src="../assets/rpng.png" height='300px'> -->
+
+    <strong>
+      <h1 class="titulo animate__animated animate__rollIn">  📖{{titulo}}</h1>
+    </strong>
+
+    <ion-item>
+      <ion-label position="floating" class="labelInput">Correo:</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+
+    </ion-item>
+    <br>
+
+
+    <ion-item>
+      <ion-label position="floating"  class="labelInput">Contraseña:</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" ></ion-input>
+    </ion-item>
+    <br>
+
+    <div id="errorLogin">
+      <h6 id="msjError"></h6>
+    </div>
+
+    <br>
+
+    <ion-button color="dark" (click)=onLogin() class=" btnLogin animate__animated  animate__backInLeft ">Iniciar Sesión</ion-button>
+   
+
+    <br>
+
+
+  </div>
+</ion-content>
+
+<div class="spin" *ngIf="spinner">
+  <ion-spinner name="crescent"></ion-spinner>
+</div>
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>

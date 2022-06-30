@@ -1,0 +1,46 @@
+
+<ion-content class="background">
+
+
+  <ion-grid *ngIf="!showDialog">
+    
+      
+    <ion-icon *ngIf="presionado" name="pause" id="btnStart" (click)="btnActivarODesactivar()"></ion-icon>
+    
+    
+    <ion-icon *ngIf="!presionado" name="play-outline" id="btnStop" (click)="btnActivarODesactivar()"></ion-icon>
+    
+    
+    <ion-row>
+    
+        <ion-button shape="round" (click)="salir()" style= "margin: auto;" color="warning">Cerrar Sesión</ion-button>
+      </ion-row>
+  </ion-grid>
+
+
+  
+  <ion-card *ngIf="showDialog">
+    <ion-card-header>
+      <ion-card-title>Ingrese su clave para detener</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item color="none">
+        <ion-input class="centrado" type='password' placeholder="Clave" [(ngModel)]="clave" name="password" required>
+        </ion-input>
+
+      </ion-item>
+    
+      <ion-label *ngIf="estado==''" class="txtVerificacion">Esperando clave!</ion-label>
+
+      <ion-label *ngIf="estado=='permitido'" class="txtVerificacion">Clave correcta!</ion-label>
+      
+      
+      <ion-label *ngIf="estado=='denegado'" class="txtVerificacion">Clave equivocada!</ion-label>
+
+      <ion-button shape="round" (click)="btnActivarODesactivar()" color="danger">Desactivar</ion-button>
+       <ion-button shape="round" (click)="cancelarDesactivar()" color="">Cancelar</ion-button>
+    </ion-card-content>
+  </ion-card>
+ 
+
+  <!--<ion-fab-button size="small" color=""  (click)="salir()" style="margin: center;"><ion-icon name="exit"></ion-icon></ion-fab-button>-->

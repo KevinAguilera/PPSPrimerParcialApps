@@ -1,0 +1,30 @@
+.credito{
+
+    color: black;
+    font-size: 60px;
+    text-align: center;
+}
+
+.actividadTitulo{
+    padding: 20px;
+}
+
+
+ion-content.background {
+    --background: url('../../assets/fondo.jpg')   center no-repeat;
+    background-size: contain;
+
+}
+
+.button-transparent {
+    --background: transparentize(100);
+   box-shadow: none !important;
+  }
+
+ion-card{
+    background-color: rgb(192, 235, 220);
+}
+
+.esconder{
+    background: rgba(255,255,255,1);
+  }

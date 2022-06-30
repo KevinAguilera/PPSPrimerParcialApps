@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-button fill="solid" size="default" color="success" (click)="Logout()" style="margin: 10px;">Cerrar Sesión
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" padding class="background">
+
+  <ion-card>
+    <ion-card-header>
+      <h3 class="credito">Crédito disponible:</h3>
+
+      <div id="credito" *ngIf="esconder">
+        <h1 class="credito" *ngIf="unUsuario">${{unUsuario.credito}} <!--<ion-icon name="eye" (click)="esconderCreditos()">
+          </ion-icon>-->
+        </h1>
+      </div>
+
+
+      <div id="credito" *ngIf="esconder==false">
+        <h1 class="credito">$****<ion-icon name="eye-off" (click)="esconderCreditos()"></ion-icon>
+        </h1>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+   
+      <ion-card *ngIf="this.monto != null" class="button-transparent">
+        <div *ngIf="scannedBarCode">
+          <!--<ion-item>
+            Monto a cargar: <strong>{{ this.monto }}</strong>
+          </ion-item>-->
+          <ion-button class="button-transparent" fill="clear" (click)="CargarCredito()">
+          
+          </ion-button>
+        </div>
+      </ion-card>
+    </ion-card-header>
+  </ion-card>
+
+ 
+
+
+  
+  <!--
+  <ion-card *ngIf="esconder">
+    <div *ngIf="unUsuario.cargo10">
+      <ion-item>
+        <h6>Se realizo una recarga de 10 creditos</h6>
+      </ion-item>
+    </div>
+    <div *ngIf="unUsuario.cargo10== 2">
+      <ion-item>
+        <h6>Se realizo una recarga de 10 creditos</h6>
+      </ion-item>
+    </div>
+    <div *ngIf="unUsuario.cargo50">
+      <ion-item>
+        <h6>Se realizo una recarga de 50 creditos</h6>
+      </ion-item>
+    </div>
+    <div *ngIf="unUsuario.cargo50 == 2">
+      <ion-item>
+        <h6>Se realizo una recarga de 50 creditos</h6>
+      </ion-item>
+    </div>
+    <div *ngIf="unUsuario.cargo100">
+      <ion-item>
+        <h6>Se realizo una recarga de 100 creditos</h6>
+      </ion-item>
+    </div>
+    <div *ngIf="unUsuario.cargo100 == 2">
+      <ion-item>
+        <h6>Se realizo una recarga de 100 creditos</h6>
+      </ion-item>
+    </div>
+    
+    <div *ngIf="unUsuario.credito== 0">
+      <ion-item>
+        <br>
+        <strong>Aun no hay recargas</strong>
+        <br>
+      </ion-item>
+      
+    </div>
+    
+  </ion-card>
+-->
+  
+  
+ <!-- <div *ngIf="esconder== false">
+    <ion-card>
+      <ion-item>
+        <br>
+        <strong>El credito y las recargas estan ocultas</strong>
+        <br>
+      </ion-item>
+    </ion-card>
+  </div>
+  
+</ion-content>-->
+
+
+
+<ion-card>
+  <ion-item>
+    <strong>RECARGA QR</strong>
+    
+    <ion-fab  horizontal="center">
+      <ion-fab-button color="success" (click)="scanBRcode()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
+    <ion-icon slot="end" name="trash" color='danger' (click)="eliminarCreditos()"></ion-icon>
+  </ion-item>
+</ion-card>
